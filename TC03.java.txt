@@ -1,0 +1,27 @@
+package frames;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.vel.config.Configurations;
+
+public class Iframe {
+	
+	public static void main(String[] args) {
+		
+		// Browser setup
+		System.setProperty("webdriver.chrome.driver", Configurations.driverPath);
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.w3schools.com/js/tryit.asp?filename=tryjs_myfirst");
+		driver.manage().window().maximize();
+		
+		driver.switchTo().frame("iframeResult");
+		//1. id    2.name.    3.Index
+		
+		driver.findElement(By.xpath("//button[@type='button']")).click();
+		
+		
+	}
+
+}
